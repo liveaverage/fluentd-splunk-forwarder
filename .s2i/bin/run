@@ -3,7 +3,7 @@
 # set up user id into passwd wrapper
 export USER_ID=$(id -u)
 export GROUP_ID=$(id -g)
-cat passwd.template | envsubst > /tmp/passwd
+### cat passwd.template | envsubst > /tmp/passwd
 export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
 export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
@@ -15,10 +15,10 @@ echo "Running fluentd as user ${USER_NAME} (${USER_ID})"
 # copy openshift configmap templte if avaiable, otherwise use built-in template
 if [ -f /tmp/fluentd-config/fluentd.conf ]; then
     echo "Using OpenShift ConfigMap configuration"
-    cat /tmp/fluentd-config/fluentd.conf | envsubst > /etc/fluent/fluentd.conf
+###    cat /tmp/fluentd-config/fluentd.conf | envsubst > /etc/fluent/fluentd.conf
 else 
     echo "Using Docker image configuration"
-    cat ~/fluentd.conf.template | envsubst > /etc/fluent/fluentd.conf
+###    cat ~/fluentd.conf.template | envsubst > /etc/fluent/fluentd.conf
 fi
 
 ADDITIONAL_OPTS=""
@@ -29,7 +29,8 @@ fi
 export ADDITIONAL_OPTS
 
 # set base args to point to fluentd.conf
-fluentdargs="-c /etc/fluent/fluentd.conf"
+
+### fluentdargs="-c /etc/fluent/fluentd.conf"
 
 # if verbose then set output to be verbose and print configuration before it is loaded
 if [[ $VERBOSE ]]; then
