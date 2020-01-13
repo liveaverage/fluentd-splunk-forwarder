@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'fluentd', '0.12.32'
+gem 'fluentd', '>=0.12.32'
 gem 'activesupport', '<5'
 gem 'public_suffix', '<3.0.0'
 gem 'fluent-plugin-rewrite-tag-filter', '<2.0.0'
