@@ -64,19 +64,5 @@ if [[ "$RAILS_ENV" == "production" || "$RACK_ENV" == "production" ]]; then
   rake_assets_precompile
 fi
 
-# Configure fluentd dir
-mkdir -p /etc/fluent
-chgrp -R 0 /etc/fluent
-chmod -R g+rwX /etc/fluent
-chgrp -R 0 ${HOME}
-chmod -R g+rwX ${HOME}
-chgrp -R 0 /etc/pki
-chmod -R g+rwX /etc/pki
-mkdir /secrets
-chgrp -R 0 /secrets
-chmod -R g+rwX /secrets
-chgrp -R 0 /var/log
-chmod -R g+rwX /var/log
-
 # Fix source directory permissions
 fix-permissions ./
