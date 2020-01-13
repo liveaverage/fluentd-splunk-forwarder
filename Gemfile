@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-gem 'rack'
-gem 'puma'
 gem 'fluentd', '0.12.32'
 gem 'activesupport', '<5'
 gem 'public_suffix', '<3.0.0'
